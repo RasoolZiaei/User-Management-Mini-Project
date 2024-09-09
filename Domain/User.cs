@@ -35,7 +35,7 @@ public class User(string firstName, string lastName,string fullName, int nationa
     [DisplayName(displayName: "National Cod")]
     public int NationalCod { get; set; } = nationalCod;
 
-    [Browsable(browsable: false)]
+    //[Browsable(browsable: false)]
     public string? Address { get; set; }
 
 }

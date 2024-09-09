@@ -30,7 +30,7 @@
         {
             mainPanel = new Razi.windows.Forms.Panel();
             searchButton = new Razi.windows.Forms.Button();
-            searchTextBox = new Razi.windows.Forms.TextBox();
+            fullNameTextBox = new Razi.windows.Forms.TextBox();
             fullNameLabel = new Razi.windows.Forms.Label();
             addUserButton = new Razi.windows.Forms.Button();
             userDataGridView = new Razi.windows.Forms.DataGridView();
@@ -41,7 +41,7 @@
             // mainPanel
             // 
             mainPanel.Controls.Add(searchButton);
-            mainPanel.Controls.Add(searchTextBox);
+            mainPanel.Controls.Add(fullNameTextBox);
             mainPanel.Controls.Add(fullNameLabel);
             mainPanel.Controls.Add(addUserButton);
             mainPanel.Controls.Add(userDataGridView);
@@ -62,14 +62,14 @@
             searchButton.UseVisualStyleBackColor = true;
             searchButton.Click += SearchButton_Click;
             // 
-            // searchTextBox
+            // fullNameTextBox
             // 
-            searchTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            searchTextBox.Location = new Point(79, 41);
-            searchTextBox.MaxLength = 50;
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(492, 23);
-            searchTextBox.TabIndex = 2;
+            fullNameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            fullNameTextBox.Location = new Point(79, 41);
+            fullNameTextBox.MaxLength = 50;
+            fullNameTextBox.Name = "fullNameTextBox";
+            fullNameTextBox.Size = new Size(492, 23);
+            fullNameTextBox.TabIndex = 2;
             // 
             // fullNameLabel
             // 
@@ -88,6 +88,7 @@
             addUserButton.TabIndex = 0;
             addUserButton.Text = "&Add User";
             addUserButton.UseVisualStyleBackColor = true;
+            addUserButton.Click += addUserButton_Click;
             // 
             // userDataGridView
             // 
@@ -97,6 +98,8 @@
             userDataGridView.Name = "userDataGridView";
             userDataGridView.Size = new Size(664, 291);
             userDataGridView.TabIndex = 4;
+            userDataGridView.CellDoubleClick += UserDataGridView_CellDoubleClick;
+            userDataGridView.CellMouseDoubleClick += UserDataGridView_CellMouseDoubleClick;
             // 
             // MainForm
             // 
@@ -118,7 +121,7 @@
         private Razi.windows.Forms.Panel mainPanel;
         private Razi.windows.Forms.DataGridView userDataGridView;
         private Razi.windows.Forms.Button searchButton;
-        private Razi.windows.Forms.TextBox searchTextBox;
+        private Razi.windows.Forms.TextBox fullNameTextBox;
         private Razi.windows.Forms.Label fullNameLabel;
         private Razi.windows.Forms.Button addUserButton;
     }

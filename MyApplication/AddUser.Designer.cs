@@ -135,6 +135,7 @@
             resetButton.TabIndex = 11;
             resetButton.Text = "&Reset";
             resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += ResetButton_Click;
             // 
             // addButton
             // 

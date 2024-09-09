@@ -136,6 +136,7 @@
             updateButton.TabIndex = 10;
             updateButton.Text = "&Update";
             updateButton.UseVisualStyleBackColor = true;
+            updateButton.Click += updateButton_Click;
             // 
             // resetButton
             // 
@@ -145,6 +146,7 @@
             resetButton.TabIndex = 11;
             resetButton.Text = "&Reset";
             resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += resetButton_Click;
             // 
             // deleteButton
             // 
@@ -181,6 +183,7 @@
             MinimumSize = new Size(319, 303);
             Name = "UpdateUserForm";
             Text = "Update";
+            Load += UpdateUserForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
