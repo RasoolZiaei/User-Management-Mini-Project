@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MyApplication.Infrastructure
+namespace MyApplication
 {
-    public partial class BaseForm : Form
+    public partial class MainForm : Infrastructure.BaseForm
     {
-        public BaseForm()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void BaseForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }

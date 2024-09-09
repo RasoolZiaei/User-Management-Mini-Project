@@ -1,6 +1,6 @@
-﻿namespace MyApplication.Infrastructure
+﻿namespace MyApplication
 {
-    partial class BaseForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             SuspendLayout();
             // 
-            // BaseForm
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(446, 202);
-            Name = "BaseForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "BaseForm";
-            Load += BaseForm_Load;
+            ClientSize = new Size(578, 300);
+            Name = "MainForm";
+            Text = "MainForm";
+            Load += MainForm_Load;
             ResumeLayout(false);
         }
 
