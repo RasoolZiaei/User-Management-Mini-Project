@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain;
 
-public class User(string firstName, string lastName,string fullName, int nationalCod)
+public class User(string firstName, string lastName,string fullName, Int64 nationalCod)
 {
     //[Browsable(browsable: false)]
     [DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
@@ -33,9 +30,11 @@ public class User(string firstName, string lastName,string fullName, int nationa
     [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 10, MinimumLength = 10)]
     [DisplayName(displayName: "National Cod")]
-    public int NationalCod { get; set; } = nationalCod;
+    public Int64 NationalCod { get; set; } = nationalCod;
 
     //[Browsable(browsable: false)]
     public string? Address { get; set; }
+
+    public byte[]? Image { get; set; }
 
 }

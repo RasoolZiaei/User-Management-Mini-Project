@@ -1,10 +1,9 @@
-﻿namespace Razi.windows.Forms
+﻿namespace Razi.windows.Forms;
+
+public class TextBox : System.Windows.Forms.TextBox
 {
-    public class TextBox : System.Windows.Forms.TextBox
+    public TextBox() : base()
     {
-        public TextBox() : base()
-        {
-            
-        }
+        
     }
 }

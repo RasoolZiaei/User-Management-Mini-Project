@@ -1,15 +1,7 @@
 ﻿using Domain;
 using MyApplication.Infrastructure;
 using Persistence;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace MyApplication;
 
@@ -25,7 +17,7 @@ public partial class AddUser : Infrastructure.BaseForm
 
     }
 
-    private void UpdateButton_Click(object sender, EventArgs e)
+    private void AddButton_Click(object sender, EventArgs e)
     {
         // **************************************************
         firstNameTextBox.Text = Utility.FixText(text: firstNameTextBox.Text);
@@ -147,7 +139,7 @@ public partial class AddUser : Infrastructure.BaseForm
                 new User(firstName: firstNameTextBox.Text,
                 lastName: lastNameTextBox.Text,
                 fullName: fullNameTextBox.Text,
-                nationalCod: Convert.ToInt32(nationalCodeTextBox.Text))
+                nationalCod: Convert.ToInt64(nationalCodeTextBox.Text))
                 {
                     Address = addressTextBox.Text,
                 };

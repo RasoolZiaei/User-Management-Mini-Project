@@ -1,11 +1,9 @@
-﻿
-namespace Razi.windows.Forms
+﻿namespace Razi.windows.Forms;
+
+public class DataGridView : System.Windows.Forms.DataGridView
 {
-    public class DataGridView : System.Windows.Forms.DataGridView
+    public DataGridView() : base()
     {
-        public DataGridView() : base()
-        {
-            
-        }
+        
     }
 }

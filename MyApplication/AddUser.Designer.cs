@@ -145,7 +145,7 @@
             addButton.TabIndex = 10;
             addButton.Text = "&Add";
             addButton.UseVisualStyleBackColor = true;
-            addButton.Click += UpdateButton_Click;
+            addButton.Click += AddButton_Click;
             // 
             // AddUser
             // 
