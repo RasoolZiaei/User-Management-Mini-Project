@@ -11,7 +11,7 @@ namespace Domain;
 
 public class User(string firstName, string lastName, int nationalCod)
 {
-    [Browsable(browsable: false)]
+    //[Browsable(browsable: false)]
     [DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
     public Guid Id { get; protected set; } = Guid.NewGuid();
 
