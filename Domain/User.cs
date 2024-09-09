@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain;
 
-public class User(string firstName, string lastName, int nationalCod)
+public class User(string firstName, string lastName,string fullName, int nationalCod)
 {
     //[Browsable(browsable: false)]
     [DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
@@ -28,7 +28,7 @@ public class User(string firstName, string lastName, int nationalCod)
     [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 50, MinimumLength = 7)]
     [DisplayName(displayName: "Full Name")]
-    public string FuulName { get; set; }
+    public string FullName { get; set; } = fullName;
 
     [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 10, MinimumLength = 10)]
