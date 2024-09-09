@@ -17,14 +17,22 @@ public class User(string firstName, string lastName, int nationalCod)
 
     [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 25, MinimumLength = 3)]
+    [DisplayName(displayName: "First Name")]
     public string FirstName { get; set; } = firstName;
 
     [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 25, MinimumLength = 3)]
+    [DisplayName(displayName: "Last Name")]
     public string LastName { get; set; } = lastName;
 
     [Required(AllowEmptyStrings = false)]
+    [StringLength(maximumLength: 50, MinimumLength = 7)]
+    [DisplayName(displayName: "Full Name")]
+    public string FuulName { get; set; }
+
+    [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 10, MinimumLength = 10)]
+    [DisplayName(displayName: "National Cod")]
     public int NationalCod { get; set; } = nationalCod;
 
     [Browsable(browsable: false)]
