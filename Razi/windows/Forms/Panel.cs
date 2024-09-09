@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Razi.windows.Forms
+﻿namespace Razi.windows.Forms
 {
-    internal class Panel
+    internal class Panel : System.Windows.Forms.Panel
     {
+        public Panel() : base()
+        {
+            
+        }
     }
 }

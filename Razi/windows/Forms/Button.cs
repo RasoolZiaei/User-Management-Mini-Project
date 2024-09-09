@@ -1,12 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Razi
+namespace Razi.windows.Forms
 {
-    internal class Button
+    internal class Button : System.Windows.Forms.Button
     {
+        public Button() : base()
+        {
+        }
+
+        protected System.Drawing.Color CurrentBackColor { get; set; }
+
+        protected override void OnMouseEnter(System.EventArgs e)
+        {
+            CurrentBackColor = BackColor;
+            BackColor = System.Drawing.Color.Khaki;
+        }
+
+        protected override void OnMouseLeave(System.EventArgs e)
+        {
+            BackColor = CurrentBackColor;
+        }
     }
 }

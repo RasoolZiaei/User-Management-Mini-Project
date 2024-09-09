@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Razi.windows.Forms
 {
-    internal class DataGridView
+    internal class DataGridView : System.Windows.Forms.DataGridView
     {
+        public DataGridView() : base()
+        {
+            
+        }
     }
 }
