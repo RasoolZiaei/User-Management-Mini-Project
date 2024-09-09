@@ -110,9 +110,9 @@ public partial class UpdateUserForm : BaseForm
                 (text: "User profile updated successfully...");
 
             // استفاده کنیم Close فرم به طور اتوماتیک بسته شود، می‌توانیم از دستور MessageBox اگر بخواهیم بعد از UpdateProfileForm در داخل
-            //Close();
+            Close();
 
-            
+
         }
         catch (Exception ex)
         {
@@ -122,5 +122,46 @@ public partial class UpdateUserForm : BaseForm
             MessageBox.Show(text: errorMessage);
         }
 
+    }
+
+    private void DeleteButton_Click(object sender, EventArgs e)
+    {
+        if (SelectedUser is null)
+        {
+            Close();
+            return;
+        }
+
+        try
+        {
+            using var applicationDbContext = new ApplicationDbContext();
+
+            var currentUser =
+                applicationDbContext.Users
+                .Where(current => current.Id == SelectedUser.Id)
+                .FirstOrDefault();
+
+            if (currentUser is null)
+            {
+                Close();
+                return;
+            }
+
+            applicationDbContext.Remove(entity: currentUser);
+
+            applicationDbContext.SaveChanges();
+
+            MessageBox.Show
+                (text: "The User profile deleted successfully...");
+
+            Close();
+        }
+        catch (Exception ex)
+        {
+            var errorMessage =
+                $"Error: {ex.Message}";
+
+            MessageBox.Show(text: errorMessage);
+        }
     }
 }

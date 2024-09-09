@@ -156,6 +156,7 @@
             deleteButton.TabIndex = 12;
             deleteButton.Text = "&Delete";
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += DeleteButton_Click;
             // 
             // UpdateUserForm
             // 
