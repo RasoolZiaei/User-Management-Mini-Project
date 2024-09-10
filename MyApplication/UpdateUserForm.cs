@@ -51,6 +51,16 @@ public partial class UpdateUserForm : BaseForm
             fullNameTextBox.Text = currentUser.FullName;
             nationalCodeTextBox.Text = currentUser.NationalCod.ToString();
             addressTextBox.Text = currentUser.Address;
+
+            //فراخوانی عکس از پایگاه داده تبدیل آن به فرمت قابل مشاهده در فرم 
+            var ImageBytes = currentUser.IdentificationImage;
+
+            using (var ms = new MemoryStream(ImageBytes))
+            {
+                userPictureBox.Image = Image.FromStream(ms);
+            }
+
+
         }
         catch (Exception ex)
         {
@@ -89,7 +99,6 @@ public partial class UpdateUserForm : BaseForm
             fullNameTextBox.Text = Utility.FixText(text: fullNameTextBox.Text);
             nationalCodeTextBox.Text = Utility.FixText(text: nationalCodeTextBox.Text);
             addressTextBox.Text = Utility.FixText(text: addressTextBox.Text);
-
             // **************************************************
 
             currentUser.FirstName = firstNameTextBox.Text;
@@ -100,12 +109,7 @@ public partial class UpdateUserForm : BaseForm
 
             applicationDbContext.SaveChanges();
 
-            // **************************************************
-            //Utility.AuthenticatedUser = currentUser;
-
-            //Utility.MainForm.ResetForm();
-            // **************************************************
-
+            
             MessageBox.Show
                 (text: "User profile updated successfully...");
 
@@ -163,5 +167,10 @@ public partial class UpdateUserForm : BaseForm
 
             MessageBox.Show(text: errorMessage);
         }
+    }
+
+    private void userPictureBox_Click(object sender, EventArgs e)
+    {
+
     }
 }

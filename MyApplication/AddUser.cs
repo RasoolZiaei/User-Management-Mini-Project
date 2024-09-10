@@ -5,7 +5,7 @@ using System.Data;
 
 namespace MyApplication;
 
-public partial class AddUser : Infrastructure.BaseForm
+public partial class AddUser : BaseForm
 {
     public AddUser()
     {
@@ -141,7 +141,8 @@ public partial class AddUser : Infrastructure.BaseForm
                 fullName: fullNameTextBox.Text,
                 nationalCod: Convert.ToInt64(nationalCodeTextBox.Text))
                 {
-                    Address = addressTextBox.Text,
+                    //Address = addressTextBox.Text,
+                    IdentificationImage = File.ReadAllBytes(openFileDialog1.FileName)
                 };
 
             applicationDbContext.Add(entity: newUser);
@@ -175,5 +176,11 @@ public partial class AddUser : Infrastructure.BaseForm
         addressTextBox.Text = string.Empty;
 
         firstNameTextBox.Focus();
+    }
+
+    private void UploadPictureButton_Click(object sender, EventArgs e)
+    {
+        openFileDialog1.ShowDialog();
+        identificationImageTextBox.Text = openFileDialog1.FileName;
     }
 }

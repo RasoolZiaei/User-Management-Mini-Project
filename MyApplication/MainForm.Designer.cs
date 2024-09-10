@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             mainPanel = new Razi.windows.Forms.Panel();
+            label1 = new Razi.windows.Forms.Label();
             searchButton = new Razi.windows.Forms.Button();
             fullNameTextBox = new Razi.windows.Forms.TextBox();
             fullNameLabel = new Razi.windows.Forms.Label();
@@ -40,6 +41,7 @@
             // 
             // mainPanel
             // 
+            mainPanel.Controls.Add(label1);
             mainPanel.Controls.Add(searchButton);
             mainPanel.Controls.Add(fullNameTextBox);
             mainPanel.Controls.Add(fullNameLabel);
@@ -50,6 +52,17 @@
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(664, 361);
             mainPanel.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 335);
+            label1.Name = "label1";
+            label1.Size = new Size(467, 17);
+            label1.TabIndex = 5;
+            label1.Text = "To see the complete information of each user, double click on the desired row.";
             // 
             // searchButton
             // 
@@ -96,7 +109,7 @@
             userDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             userDataGridView.Location = new Point(0, 70);
             userDataGridView.Name = "userDataGridView";
-            userDataGridView.Size = new Size(664, 291);
+            userDataGridView.Size = new Size(664, 262);
             userDataGridView.TabIndex = 4;
             userDataGridView.CellDoubleClick += UserDataGridView_CellDoubleClick;
             userDataGridView.CellMouseDoubleClick += UserDataGridView_CellMouseDoubleClick;
@@ -125,5 +138,6 @@
         private Razi.windows.Forms.TextBox fullNameTextBox;
         private Razi.windows.Forms.Label fullNameLabel;
         private Razi.windows.Forms.Button addUserButton;
+        private Razi.windows.Forms.Label label1;
     }
 }

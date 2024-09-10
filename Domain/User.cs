@@ -32,9 +32,8 @@ public class User(string firstName, string lastName,string fullName, Int64 natio
     [DisplayName(displayName: "National Cod")]
     public Int64 NationalCod { get; set; } = nationalCod;
 
-    //[Browsable(browsable: false)]
     public string? Address { get; set; }
 
-    public byte[]? Image { get; set; }
-
+    [Browsable(browsable: false)]
+    public byte[] IdentificationImage { get; set; }
 }

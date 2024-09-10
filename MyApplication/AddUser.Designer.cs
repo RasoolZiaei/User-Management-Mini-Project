@@ -40,14 +40,17 @@
             lastNameLabel = new Razi.windows.Forms.Label();
             resetButton = new Razi.windows.Forms.Button();
             addButton = new Razi.windows.Forms.Button();
+            uploadPictureButton = new Razi.windows.Forms.Button();
+            identificationImageTextBox = new Razi.windows.Forms.TextBox();
+            openFileDialog1 = new OpenFileDialog();
             SuspendLayout();
             // 
             // firstNameTextBox
             // 
-            firstNameTextBox.Location = new Point(101, 12);
+            firstNameTextBox.Location = new Point(122, 12);
             firstNameTextBox.MaxLength = 25;
             firstNameTextBox.Name = "firstNameTextBox";
-            firstNameTextBox.Size = new Size(190, 23);
+            firstNameTextBox.Size = new Size(207, 23);
             firstNameTextBox.TabIndex = 1;
             // 
             // firstNameLabel
@@ -61,10 +64,10 @@
             // 
             // addressTextBox
             // 
-            addressTextBox.Location = new Point(101, 128);
+            addressTextBox.Location = new Point(122, 128);
             addressTextBox.Multiline = true;
             addressTextBox.Name = "addressTextBox";
-            addressTextBox.Size = new Size(190, 95);
+            addressTextBox.Size = new Size(207, 95);
             addressTextBox.TabIndex = 9;
             // 
             // addressLabel
@@ -78,10 +81,10 @@
             // 
             // nationalCodeTextBox
             // 
-            nationalCodeTextBox.Location = new Point(101, 99);
+            nationalCodeTextBox.Location = new Point(122, 99);
             nationalCodeTextBox.MaxLength = 10;
             nationalCodeTextBox.Name = "nationalCodeTextBox";
-            nationalCodeTextBox.Size = new Size(190, 23);
+            nationalCodeTextBox.Size = new Size(207, 23);
             nationalCodeTextBox.TabIndex = 7;
             // 
             // nationalCodeLabel
@@ -95,10 +98,10 @@
             // 
             // fullNameTextBox
             // 
-            fullNameTextBox.Location = new Point(101, 70);
+            fullNameTextBox.Location = new Point(122, 70);
             fullNameTextBox.MaxLength = 50;
             fullNameTextBox.Name = "fullNameTextBox";
-            fullNameTextBox.Size = new Size(190, 23);
+            fullNameTextBox.Size = new Size(207, 23);
             fullNameTextBox.TabIndex = 5;
             // 
             // fullNameLabel
@@ -112,10 +115,10 @@
             // 
             // lastNameTextBox
             // 
-            lastNameTextBox.Location = new Point(101, 41);
+            lastNameTextBox.Location = new Point(122, 41);
             lastNameTextBox.MaxLength = 25;
             lastNameTextBox.Name = "lastNameTextBox";
-            lastNameTextBox.Size = new Size(190, 23);
+            lastNameTextBox.Size = new Size(207, 23);
             lastNameTextBox.TabIndex = 3;
             // 
             // lastNameLabel
@@ -129,23 +132,44 @@
             // 
             // resetButton
             // 
-            resetButton.Location = new Point(93, 229);
+            resetButton.Location = new Point(93, 269);
             resetButton.Name = "resetButton";
             resetButton.Size = new Size(75, 23);
-            resetButton.TabIndex = 11;
+            resetButton.TabIndex = 13;
             resetButton.Text = "&Reset";
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += ResetButton_Click;
             // 
             // addButton
             // 
-            addButton.Location = new Point(12, 229);
+            addButton.Location = new Point(12, 269);
             addButton.Name = "addButton";
             addButton.Size = new Size(75, 23);
-            addButton.TabIndex = 10;
+            addButton.TabIndex = 12;
             addButton.Text = "&Add";
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += AddButton_Click;
+            // 
+            // uploadPictureButton
+            // 
+            uploadPictureButton.Location = new Point(12, 229);
+            uploadPictureButton.Name = "uploadPictureButton";
+            uploadPictureButton.Size = new Size(104, 23);
+            uploadPictureButton.TabIndex = 10;
+            uploadPictureButton.Text = "&Upload Picture";
+            uploadPictureButton.UseVisualStyleBackColor = true;
+            uploadPictureButton.Click += UploadPictureButton_Click;
+            // 
+            // identificationImageTextBox
+            // 
+            identificationImageTextBox.Location = new Point(122, 230);
+            identificationImageTextBox.Name = "identificationImageTextBox";
+            identificationImageTextBox.Size = new Size(207, 23);
+            identificationImageTextBox.TabIndex = 11;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
             // 
             // AddUser
             // 
@@ -153,7 +177,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = resetButton;
-            ClientSize = new Size(303, 264);
+            ClientSize = new Size(341, 304);
+            Controls.Add(identificationImageTextBox);
+            Controls.Add(uploadPictureButton);
             Controls.Add(resetButton);
             Controls.Add(addButton);
             Controls.Add(addressTextBox);
@@ -167,9 +193,9 @@
             Controls.Add(firstNameTextBox);
             Controls.Add(firstNameLabel);
             MaximizeBox = false;
-            MaximumSize = new Size(319, 303);
+            MaximumSize = new Size(357, 343);
             MinimizeBox = false;
-            MinimumSize = new Size(319, 303);
+            MinimumSize = new Size(357, 343);
             Name = "AddUser";
             Text = "Add";
             Load += AddUser_Load;
@@ -191,5 +217,8 @@
         private Razi.windows.Forms.Label lastNameLabel;
         private Razi.windows.Forms.Button resetButton;
         private Razi.windows.Forms.Button addButton;
+        private Razi.windows.Forms.Button uploadPictureButton;
+        private Razi.windows.Forms.TextBox identificationImageTextBox;
+        private OpenFileDialog openFileDialog1;
     }
 }

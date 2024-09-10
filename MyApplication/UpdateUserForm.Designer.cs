@@ -41,6 +41,8 @@
             updateButton = new Razi.windows.Forms.Button();
             resetButton = new Razi.windows.Forms.Button();
             deleteButton = new Razi.windows.Forms.Button();
+            userPictureBox = new Razi.windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)userPictureBox).BeginInit();
             SuspendLayout();
             // 
             // firstNameLabel
@@ -158,13 +160,24 @@
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += DeleteButton_Click;
             // 
+            // userPictureBox
+            // 
+            userPictureBox.Location = new Point(297, 12);
+            userPictureBox.Name = "userPictureBox";
+            userPictureBox.Size = new Size(233, 211);
+            userPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            userPictureBox.TabIndex = 13;
+            userPictureBox.TabStop = false;
+            userPictureBox.Click += userPictureBox_Click;
+            // 
             // UpdateUserForm
             // 
             AcceptButton = updateButton;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = resetButton;
-            ClientSize = new Size(303, 264);
+            ClientSize = new Size(542, 264);
+            Controls.Add(userPictureBox);
             Controls.Add(deleteButton);
             Controls.Add(resetButton);
             Controls.Add(updateButton);
@@ -179,12 +192,13 @@
             Controls.Add(firstNameTextBox);
             Controls.Add(firstNameLabel);
             MaximizeBox = false;
-            MaximumSize = new Size(319, 303);
+            MaximumSize = new Size(558, 303);
             MinimizeBox = false;
-            MinimumSize = new Size(319, 303);
+            MinimumSize = new Size(558, 303);
             Name = "UpdateUserForm";
             Text = "Update";
             Load += UpdateUserForm_Load;
+            ((System.ComponentModel.ISupportInitialize)userPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -204,5 +218,6 @@
         private Razi.windows.Forms.Button updateButton;
         private Razi.windows.Forms.Button resetButton;
         private Razi.windows.Forms.Button deleteButton;
+        private Razi.windows.Forms.PictureBox userPictureBox;
     }
 }
