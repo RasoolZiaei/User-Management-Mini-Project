@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain;
 
-public class User(string firstName, string lastName,string fullName, Int64 nationalCod)
+public class User(string firstName, string lastName,string fullName, string nationalCod)
 {
     //[Browsable(browsable: false)]
     [DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
@@ -30,7 +30,7 @@ public class User(string firstName, string lastName,string fullName, Int64 natio
     [Required(AllowEmptyStrings = false)]
     [StringLength(maximumLength: 10, MinimumLength = 10)]
     [DisplayName(displayName: "National Cod")]
-    public Int64 NationalCod { get; set; } = nationalCod;
+    public string NationalCod { get; set; } = nationalCod;
 
     public string? Address { get; set; }
 

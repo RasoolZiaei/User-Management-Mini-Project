@@ -2,6 +2,7 @@
 using MyApplication.Infrastructure;
 using Persistence;
 using System.Data;
+using System.Windows.Forms;
 
 namespace MyApplication;
 
@@ -139,10 +140,10 @@ public partial class AddUser : BaseForm
                 new User(firstName: firstNameTextBox.Text,
                 lastName: lastNameTextBox.Text,
                 fullName: fullNameTextBox.Text,
-                nationalCod: Convert.ToInt64(nationalCodeTextBox.Text))
+                nationalCod: nationalCodeTextBox.Text)
                 {
-                    //Address = addressTextBox.Text,
-                    IdentificationImage = File.ReadAllBytes(openFileDialog1.FileName)
+                    IdentificationImage = File.ReadAllBytes(openFileDialog1.FileName),
+                    Address = addressTextBox.Text,
                 };
 
             applicationDbContext.Add(entity: newUser);
@@ -174,6 +175,7 @@ public partial class AddUser : BaseForm
         fullNameTextBox.Text = string.Empty;
         nationalCodeTextBox.Text = string.Empty;
         addressTextBox.Text = string.Empty;
+        identificationImageTextBox.Text = string.Empty;
 
         firstNameTextBox.Focus();
     }
@@ -182,5 +184,11 @@ public partial class AddUser : BaseForm
     {
         openFileDialog1.ShowDialog();
         identificationImageTextBox.Text = openFileDialog1.FileName;
+    }
+
+    private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        openFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
     }
 }

@@ -104,7 +104,7 @@ public partial class UpdateUserForm : BaseForm
             currentUser.FirstName = firstNameTextBox.Text;
             currentUser.LastName = lastNameTextBox.Text;
             currentUser.FullName = fullNameTextBox.Text;
-            currentUser.NationalCod = Convert.ToInt64(nationalCodeTextBox.Text);
+            currentUser.NationalCod = nationalCodeTextBox.Text;
             currentUser.Address = addressTextBox.Text;
 
             applicationDbContext.SaveChanges();
