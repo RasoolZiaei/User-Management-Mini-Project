@@ -32,10 +32,11 @@ public partial class AddUser : BaseForm
         if (firstNameTextBox.Text == string.Empty
             || lastNameTextBox.Text == string.Empty
             || fullNameTextBox.Text == string.Empty
-            || nationalCodeTextBox.Text == string.Empty)
+            || nationalCodeTextBox.Text == string.Empty
+            || pictureBox1.Image == null)
         {
             var errorMessage =
-                "First Name, Last Name, Full Name And National Cod are requied!";
+                "First Name, Last Name, Full Name, National Code And user picture are requied!";
 
             MessageBox.Show(text: errorMessage);
 
@@ -140,11 +141,13 @@ public partial class AddUser : BaseForm
                 new User(firstName: firstNameTextBox.Text,
                 lastName: lastNameTextBox.Text,
                 fullName: fullNameTextBox.Text,
-                nationalCod: nationalCodeTextBox.Text)
+                nationalCod: nationalCodeTextBox.Text,
+                identificationImage: ImageToByte(pictureBox1.Image))
                 {
-                    IdentificationImage = File.ReadAllBytes(openFileDialog1.FileName),
+
                     Address = addressTextBox.Text,
                 };
+
 
             applicationDbContext.Add(entity: newUser);
 
@@ -162,6 +165,14 @@ public partial class AddUser : BaseForm
             MessageBox.Show(text: errorMessage);
         }
     }
+    private byte[] ImageToByte(Image img)
+    {
+        using (var stream = new MemoryStream())
+        {
+            img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            return stream.ToArray();
+        }
+    }
 
     private void ResetButton_Click(object sender, EventArgs e)
     {
@@ -175,20 +186,29 @@ public partial class AddUser : BaseForm
         fullNameTextBox.Text = string.Empty;
         nationalCodeTextBox.Text = string.Empty;
         addressTextBox.Text = string.Empty;
-        identificationImageTextBox.Text = string.Empty;
+        //identificationImageTextBox.Text = string.Empty;
+        pictureBox1.Image = null;
 
         firstNameTextBox.Focus();
     }
 
     private void UploadPictureButton_Click(object sender, EventArgs e)
     {
-        openFileDialog1.ShowDialog();
-        identificationImageTextBox.Text = openFileDialog1.FileName;
-    }
+        //var openFileDialog = new OpenFileDialog();
+        //openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+        //if (openFileDialog.ShowDialog() == DialogResult.OK)
+        //{
+        //    var photo = File.ReadAllBytes(openFileDialog.FileName);
 
-    private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-    {
-        openFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-
+        //    identificationImageTextBox.Text = openFileDialog.FileName;
+        //}
+        var openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            var photo = File.ReadAllBytes(openFileDialog.FileName);
+            // ذخیره عکس در یک فیلد در فرم
+            pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+        }
     }
 }

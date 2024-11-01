@@ -106,10 +106,11 @@ public partial class UpdateUserForm : BaseForm
             currentUser.FullName = fullNameTextBox.Text;
             currentUser.NationalCod = nationalCodeTextBox.Text;
             currentUser.Address = addressTextBox.Text;
+            currentUser.IdentificationImage = ImageToByte(userPictureBox.Image);
 
             applicationDbContext.SaveChanges();
 
-            
+
             MessageBox.Show
                 (text: "User profile updated successfully...");
 
@@ -126,6 +127,14 @@ public partial class UpdateUserForm : BaseForm
             MessageBox.Show(text: errorMessage);
         }
 
+    }
+    private byte[] ImageToByte(Image img)
+    {
+        using (var stream = new MemoryStream())
+        {
+            img.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            return stream.ToArray();
+        }
     }
 
     private void DeleteButton_Click(object sender, EventArgs e)
@@ -172,5 +181,17 @@ public partial class UpdateUserForm : BaseForm
     private void userPictureBox_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void changePictureButton_Click(object sender, EventArgs e)
+    {
+        var openFileDialog = new OpenFileDialog();
+        openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            var photo = File.ReadAllBytes(openFileDialog.FileName);
+            // ذخیره عکس در یک فیلد در فرم
+            userPictureBox.Image = Image.FromFile(openFileDialog.FileName);
+        }
     }
 }

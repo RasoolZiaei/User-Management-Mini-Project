@@ -20,6 +20,9 @@ public partial class MainForm : Infrastructure.BaseForm
         userDataGridView.EditMode =
             DataGridViewEditMode.EditProgrammatically;
         // **************************************************
+
+        AddButtonColumn();
+
         Search();
     }
 
@@ -101,5 +104,45 @@ public partial class MainForm : Infrastructure.BaseForm
         addUser.ShowDialog();
 
         Search();
+    }
+
+    private void AddButtonColumn()
+    {
+        DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+        buttonColumn.HeaderText = "Picture";
+        buttonColumn.Text = "Open Picture";
+        buttonColumn.UseColumnTextForButtonValue = true;
+        buttonColumn.DisplayIndex = userDataGridView.Columns.Count - 1;
+        userDataGridView.Columns.Add(buttonColumn);
+
+    }
+    private void userDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.ColumnIndex == 0 && e.RowIndex >= 0)
+        {
+            var userId = (Guid)userDataGridView.Rows[e.RowIndex].Cells["Id"].Value;
+            using (var context = new ApplicationDbContext())
+            {
+                var user = context.Users.Find(userId);
+                if (user != null && user.IdentificationImage != null)
+                {
+                    var form = new Form();
+                    form.Text = "User Picture";
+                    form.StartPosition = FormStartPosition.CenterParent;
+                    form.Width = 400;
+                    form.Height = 400;
+                    var pictureBox = new PictureBox();
+                    pictureBox.Dock = DockStyle.Fill;
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pictureBox.Image = Image.FromStream(new MemoryStream(user.IdentificationImage));
+                    form.Controls.Add(pictureBox);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("تصویر کاربر وجود ندارد.");
+                }
+            }
+        }
     }
 }

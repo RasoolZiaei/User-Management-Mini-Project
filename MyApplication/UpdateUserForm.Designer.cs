@@ -42,6 +42,7 @@
             resetButton = new Razi.windows.Forms.Button();
             deleteButton = new Razi.windows.Forms.Button();
             userPictureBox = new Razi.windows.Forms.PictureBox();
+            changePictureButton = new Razi.windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)userPictureBox).BeginInit();
             SuspendLayout();
             // 
@@ -132,12 +133,13 @@
             // 
             // updateButton
             // 
+            updateButton.BackColor = Color.Khaki;
             updateButton.Location = new Point(12, 229);
             updateButton.Name = "updateButton";
             updateButton.Size = new Size(75, 23);
             updateButton.TabIndex = 10;
             updateButton.Text = "&Update";
-            updateButton.UseVisualStyleBackColor = true;
+            updateButton.UseVisualStyleBackColor = false;
             updateButton.Click += updateButton_Click;
             // 
             // resetButton
@@ -170,6 +172,16 @@
             userPictureBox.TabStop = false;
             userPictureBox.Click += userPictureBox_Click;
             // 
+            // changePictureButton
+            // 
+            changePictureButton.Location = new Point(358, 229);
+            changePictureButton.Name = "changePictureButton";
+            changePictureButton.Size = new Size(113, 23);
+            changePictureButton.TabIndex = 14;
+            changePictureButton.Text = "Change Picture";
+            changePictureButton.UseVisualStyleBackColor = true;
+            changePictureButton.Click += changePictureButton_Click;
+            // 
             // UpdateUserForm
             // 
             AcceptButton = updateButton;
@@ -177,6 +189,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = resetButton;
             ClientSize = new Size(542, 264);
+            Controls.Add(changePictureButton);
             Controls.Add(userPictureBox);
             Controls.Add(deleteButton);
             Controls.Add(resetButton);
@@ -219,5 +232,6 @@
         private Razi.windows.Forms.Button resetButton;
         private Razi.windows.Forms.Button deleteButton;
         private Razi.windows.Forms.PictureBox userPictureBox;
+        private Razi.windows.Forms.Button changePictureButton;
     }
 }

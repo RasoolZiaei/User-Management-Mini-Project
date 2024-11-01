@@ -41,8 +41,9 @@
             resetButton = new Razi.windows.Forms.Button();
             addButton = new Razi.windows.Forms.Button();
             uploadPictureButton = new Razi.windows.Forms.Button();
-            identificationImageTextBox = new Razi.windows.Forms.TextBox();
             openFileDialog1 = new OpenFileDialog();
+            pictureBox1 = new Razi.windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // firstNameTextBox
@@ -67,7 +68,7 @@
             addressTextBox.Location = new Point(122, 128);
             addressTextBox.Multiline = true;
             addressTextBox.Name = "addressTextBox";
-            addressTextBox.Size = new Size(207, 95);
+            addressTextBox.Size = new Size(207, 55);
             addressTextBox.TabIndex = 9;
             // 
             // addressLabel
@@ -132,7 +133,7 @@
             // 
             // resetButton
             // 
-            resetButton.Location = new Point(93, 269);
+            resetButton.Location = new Point(93, 351);
             resetButton.Name = "resetButton";
             resetButton.Size = new Size(75, 23);
             resetButton.TabIndex = 13;
@@ -142,7 +143,7 @@
             // 
             // addButton
             // 
-            addButton.Location = new Point(12, 269);
+            addButton.Location = new Point(12, 351);
             addButton.Name = "addButton";
             addButton.Size = new Size(75, 23);
             addButton.TabIndex = 12;
@@ -152,7 +153,7 @@
             // 
             // uploadPictureButton
             // 
-            uploadPictureButton.Location = new Point(12, 229);
+            uploadPictureButton.Location = new Point(12, 189);
             uploadPictureButton.Name = "uploadPictureButton";
             uploadPictureButton.Size = new Size(104, 23);
             uploadPictureButton.TabIndex = 10;
@@ -160,26 +161,24 @@
             uploadPictureButton.UseVisualStyleBackColor = true;
             uploadPictureButton.Click += UploadPictureButton_Click;
             // 
-            // identificationImageTextBox
+            // pictureBox1
             // 
-            identificationImageTextBox.Location = new Point(122, 230);
-            identificationImageTextBox.Name = "identificationImageTextBox";
-            identificationImageTextBox.Size = new Size(207, 23);
-            identificationImageTextBox.TabIndex = 11;
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            pictureBox1.BackColor = Color.FromArgb(224, 224, 224);
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Location = new Point(122, 189);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(207, 156);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
             // 
             // AddUser
             // 
             AcceptButton = addButton;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            CancelButton = resetButton;
-            ClientSize = new Size(341, 304);
-            Controls.Add(identificationImageTextBox);
+            ClientSize = new Size(341, 386);
+            Controls.Add(pictureBox1);
             Controls.Add(uploadPictureButton);
             Controls.Add(resetButton);
             Controls.Add(addButton);
@@ -194,12 +193,12 @@
             Controls.Add(firstNameTextBox);
             Controls.Add(firstNameLabel);
             MaximizeBox = false;
-            MaximumSize = new Size(357, 343);
             MinimizeBox = false;
             MinimumSize = new Size(357, 343);
             Name = "AddUser";
             Text = "Add";
             Load += AddUser_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -219,7 +218,7 @@
         private Razi.windows.Forms.Button resetButton;
         private Razi.windows.Forms.Button addButton;
         private Razi.windows.Forms.Button uploadPictureButton;
-        private Razi.windows.Forms.TextBox identificationImageTextBox;
         private OpenFileDialog openFileDialog1;
+        private Razi.windows.Forms.PictureBox pictureBox1;
     }
 }

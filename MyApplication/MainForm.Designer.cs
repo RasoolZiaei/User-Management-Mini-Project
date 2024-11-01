@@ -111,6 +111,7 @@
             userDataGridView.Name = "userDataGridView";
             userDataGridView.Size = new Size(664, 262);
             userDataGridView.TabIndex = 4;
+            userDataGridView.CellContentClick += userDataGridView_CellContentClick;
             userDataGridView.CellDoubleClick += UserDataGridView_CellDoubleClick;
             userDataGridView.CellMouseDoubleClick += UserDataGridView_CellMouseDoubleClick;
             // 

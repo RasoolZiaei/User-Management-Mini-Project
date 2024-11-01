@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain;
 
-public class User(string firstName, string lastName,string fullName, string nationalCod)
+public class User(string firstName, string lastName,string fullName, string nationalCod, byte[] identificationImage)
 {
     //[Browsable(browsable: false)]
     [DatabaseGenerated(databaseGeneratedOption: DatabaseGeneratedOption.None)]
@@ -35,5 +35,5 @@ public class User(string firstName, string lastName,string fullName, string nati
     public string? Address { get; set; }
 
     [Browsable(browsable: false)]
-    public byte[] IdentificationImage { get; set; }
+    public byte[] IdentificationImage { get; set; } = identificationImage;
 }
